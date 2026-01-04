@@ -135,9 +135,8 @@ const Contact = () => {
                       Our Location
                     </h4>
                     <p className="text-gray-600 leading-relaxed">
-                      123 Pet Care Lane, Suite 100
-                      <br />
-                      New York, NY 10001
+                      Shafina Center (2nd Floor), Gareeb-E-Nawaz Avenue, Sector:
+                      11, Uttara, Dhaka 1230
                     </p>
                   </div>
                 </div>
@@ -197,7 +196,7 @@ const Contact = () => {
             {/* Map Area */}
             <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-inner h-64 relative group">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29186.925470710084!2d90.35768835682431!3d23.876648179373262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5d05e7074dd%3A0xd1c58803049f00c7!2sUttara%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1767516014402!5m2!1sen!2sbd"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.388858239364!2d90.38847787500599!3d23.875825978585034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5006bcc1c01%3A0x116b983d04952be8!2sUttara%20Pet%20Mart!5e0!3m2!1sen!2sbd!4v1767519176335!5m2!1sen!2sbd"
                 width="600"
                 height="450"
                 style={{ border: 0 }}

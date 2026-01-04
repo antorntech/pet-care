@@ -31,14 +31,6 @@ const services = [
     image:
       "https://images.unsplash.com/photo-1509205477838-a534e43a849f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMHBldHMlMjBkb2dzJTIwY2F0c3xlbnwxfHx8fDE3Njc1MDAxMjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
   },
-  {
-    icon: AcademicCapIcon,
-    title: "Training Programs",
-    description:
-      "Expert training programs for obedience, behavioral correction, and specialized skill development.",
-    image:
-      "https://images.unsplash.com/photo-1620289052446-202137ffa876?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkb2clMjB0cmFpbmluZ3xlbnwxfHx8fDE3Njc1MDAxMjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  },
 ];
 
 const Services = () => {
@@ -60,13 +52,13 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group border border-transparent hover:border-green-100"
+                className="bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition-all duration-300 group border border-transparent hover:border-green-100"
               >
                 {/* Service Image Section */}
                 <div className="h-48 overflow-hidden relative">
