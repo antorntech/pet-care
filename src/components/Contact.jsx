@@ -47,7 +47,7 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form Section */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div className="bg-white rounded-2xl p-8 shadow border border-gray-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h3>
@@ -120,7 +120,7 @@ const Contact = () => {
 
           {/* Contact Information Section */}
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+            <div className="bg-white rounded-2xl p-8 shadow border border-gray-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Clinic Information
               </h3>
@@ -166,7 +166,7 @@ const Contact = () => {
             </div>
 
             {/* Map Area */}
-            <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-inner h-64 relative group">
+            <div className="bg-gray-200 rounded-2xl overflow-hidden shadow h-64 relative group">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.388858239364!2d90.38847787500599!3d23.875825978585034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c5006bcc1c01%3A0x116b983d04952be8!2sUttara%20Pet%20Mart!5e0!3m2!1sen!2sbd!4v1767519176335!5m2!1sen!2sbd"
                 width="600"
