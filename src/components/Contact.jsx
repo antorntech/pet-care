@@ -29,7 +29,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-gray-50">
+    <section id="contact" className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -160,34 +160,6 @@ const Contact = () => {
                   <div>
                     <h4 className="text-gray-900 font-bold mb-1">Email Us</h4>
                     <p className="text-gray-600">info@petcarecenter.com</p>
-                  </div>
-                </div>
-
-                {/* Hours */}
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <ClockIcon className="w-6 h-6 text-[#3F9AAE]" />
-                  </div>
-                  <div>
-                    <h4 className="text-gray-900 font-bold mb-1">
-                      Working Hours
-                    </h4>
-                    <p className="text-gray-600 text-sm">
-                      <span className="font-semibold text-gray-800">
-                        Mon - Fri:
-                      </span>{" "}
-                      8:00 AM - 6:00 PM
-                      <br />
-                      <span className="font-semibold text-gray-800">
-                        Sat:
-                      </span>{" "}
-                      9:00 AM - 4:00 PM
-                      <br />
-                      <span className="font-semibold text-red-500">
-                        Sun:
-                      </span>{" "}
-                      Closed
-                    </p>
                   </div>
                 </div>
               </div>

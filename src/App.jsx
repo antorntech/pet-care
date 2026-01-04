@@ -7,6 +7,7 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
+import OurTeam from "./components/OurTeam";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <About />
         <Gallery />
         <Services />
+        <OurTeam />
         <Blog />
         <Contact />
       </main>

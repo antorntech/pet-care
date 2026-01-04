@@ -1,92 +1,167 @@
-import React, { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import React, { useState, useEffect } from "react";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  PhoneIcon,
+  ClockIcon,
+} from "@heroicons/react/24/outline";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaPinterestP,
+} from "react-icons/fa";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const menuItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "Services", href: "#services" },
-    { name: "Blog", href: "#blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Services", id: "services" },
+    { name: "Our Team", id: "team" },
+    { name: "Blog", id: "blog" },
+    { name: "Contact Us", id: "contact" },
   ];
 
+  // Active Section Tracking
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: "-20% 0px -70% 0px", // Adjust the margin as needed
+      threshold: 0,
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    menuItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md shadow-sm z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
-          {/* Logo Section */}
-          <div className="flex-shrink-0 flex items-center">
-            <img src="/logo.svg" alt="" />
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center space-x-8 font-medium">
-            {menuItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-700 hover:text-[#3F9AAE] transition-all duration-300 relative group"
-              >
-                {item.name}
-                <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-[#3F9AAE] transition-all duration-300 group-hover:w-full"></span>
-              </a>
-            ))}
-          </nav>
-
-          {/* Desktop CTA Button */}
-          <div className="hidden md:block">
-            <a
-              href="#contact"
-              className="bg-[#3F9AAE] hover:bg-cyan-600 text-white font-semibold px-6 py-2.5 rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-md"
-            >
-              Get Started
+    <header className="fixed top-0 left-0 right-0 z-50 shadow-sm">
+      {/* 1. Top Section: Logo & Info */}
+      <div className="bg-white py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <a href="/#hero" className="flex items-center">
+              <img src="/logo.svg" alt="logo" className="w-40" />
             </a>
-          </div>
 
-          {/* Mobile Menu Button (Hamburger) */}
-          <div className="md:hidden flex items-center">
+            <div className="hidden md:flex items-center gap-10">
+              <div className="flex items-center gap-3">
+                <PhoneIcon className="w-8 h-8 text-cyan-400" />
+                <div>
+                  <p className="text-sm font-bold text-gray-800">Call Us Now</p>
+                  <p className="text-sm text-gray-500">+10800-33-800</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 border-l pl-10">
+                <ClockIcon className="w-8 h-8 text-cyan-400" />
+                <div>
+                  <p className="text-sm font-bold text-gray-800">
+                    Opening Hours
+                  </p>
+                  <p className="text-sm text-gray-500">
+                    Mon - Sat 9.00 - 19.00
+                  </p>
+                </div>
+              </div>
+            </div>
+
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-[#3F9AAE] p-2 focus:outline-none"
-              aria-label="Toggle Menu"
+              className="md:hidden p-2 text-gray-700"
             >
               {isMenuOpen ? (
-                <XMarkIcon className="h-7 w-7 transition-all rotate-90" />
+                <XMarkIcon className="w-8 h-8" />
               ) : (
-                <Bars3Icon className="h-7 w-7 transition-all" />
+                <Bars3Icon className="w-8 h-8" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Sidebar/Menu Overlay */}
+      {/* 2. Bottom Section: Navigation & Social Icons */}
+      <div className="hidden md:block bg-[#1a2e44]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <nav className="flex items-center">
+              {menuItems.map((item, index) => (
+                <React.Fragment key={item.name}>
+                  <a
+                    href={`#${item.id}`}
+                    className={`py-4 px-6 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${
+                      activeSection === item.id
+                        ? "bg-cyan-500 text-white" // Only for active section
+                        : "text-gray-300 hover:text-cyan-500"
+                    }`}
+                  >
+                    {item.name}
+                  </a>
+                  {index < menuItems.length - 1 && (
+                    <span className="text-gray-600">|</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </nav>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-4">
+              {[FaFacebookF, FaTwitter, FaInstagram, FaPinterestP].map(
+                (Icon, i) => (
+                  <a
+                    key={i}
+                    href="#"
+                    className="bg-cyan-800 px-3 py-2 rounded text-white hover:bg-white hover:text-cyan-800 transition-colors"
+                  >
+                    <Icon />
+                  </a>
+                )
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl transition-all duration-300 ease-in-out ${
-          isMenuOpen
-            ? "opacity-100 translate-y-0 visible"
-            : "opacity-0 -translate-y-4 invisible"
+        className={`md:hidden bg-[#1a2e44] transition-all duration-300 ${
+          isMenuOpen ? "max-h-screen border-t" : "max-h-0 overflow-hidden"
         }`}
       >
-        <nav className="px-6 pt-4 pb-8 space-y-3">
+        <nav className="flex flex-col">
           {menuItems.map((item) => (
             <a
               key={item.name}
-              href={item.href}
-              className="block py-3 text-lg font-medium text-gray-700 hover:text-[#3F9AAE] hover:bg-green-50 rounded-lg px-4 transition-colors"
+              href={`#${item.id}`}
+              className={`px-6 py-4 border-b border-gray-700 font-bold uppercase text-sm transition-colors ${
+                activeSection === item.id
+                  ? "bg-cyan-500 text-white"
+                  : "text-white"
+              }`}
               onClick={() => setIsMenuOpen(false)}
             >
               {item.name}
             </a>
           ))}
-          <div className="pt-4 px-4">
-            <button className="w-full bg-[#3F9AAE] hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full transition-colors shadow-lg">
-              Get Started
-            </button>
-          </div>
         </nav>
       </div>
     </header>
