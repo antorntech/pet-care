@@ -60,7 +60,7 @@ const Header = () => {
       <div className="bg-white py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <a href="/#hero" className="flex items-center">
+            <a href="#home" className="flex items-center">
               <img src="/logo.svg" alt="logo" className="w-40" />
             </a>
 
